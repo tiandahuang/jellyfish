@@ -1296,7 +1296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 163818172}
-  - component: {fileID: 163818171}
+  - component: {fileID: 163818173}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1304,22 +1304,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &163818171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163818170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 354eb2b4e31b7f449bd7d55e2001c0c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TargetDeviceName: Jelly Broadcast Test
-  ServiceUUID: deadbeef-dead-beef-dead-beefdeadbeef
-  CharacteristicUUID: deadbeef-dead-beef-dead-beefdeadbeef
-  logTextMesh: {fileID: 1212654545}
 --- !u!4 &163818172
 Transform:
   m_ObjectHideFlags: 0
@@ -1335,6 +1319,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163818173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163818170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7659fb8e4637d1a498ac8dc50bc13dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &164837551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1362,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2053334510}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &167376675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7335741930208654419, guid: cdeb96b7cc1bb0b4e8ed9fcb16be7b5f, type: 3}
+  m_PrefabInstance: {fileID: 1735472510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &167376679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167376675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4daac92409ffad24788dd4e9aab1dcab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugText: {fileID: 1212654545}
 --- !u!1 &168558606
 GameObject:
   m_ObjectHideFlags: 0
@@ -13245,7 +13259,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -583.53503, y: -307.60324, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17002,51 +17016,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 154481425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1577218950
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1577218951}
-  - component: {fileID: 1577218952}
-  m_Layer: 0
-  m_Name: GameObject (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1577218951
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577218950}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1577218952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577218950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4efe3a76c9c60a458df5ffa2a40d563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testdubug: {fileID: 0}
 --- !u!1 &1577562823
 GameObject:
   m_ObjectHideFlags: 0
@@ -18589,6 +18558,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7335741930208654419, guid: cdeb96b7cc1bb0b4e8ed9fcb16be7b5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 167376679}
     - targetCorrespondingSourceObject: {fileID: 6978493280823364213, guid: cdeb96b7cc1bb0b4e8ed9fcb16be7b5f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1212654545}
@@ -23565,7 +23537,6 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 163818172}
-  - {fileID: 1577218951}
   - {fileID: 1535893566}
   - {fileID: 1516132111}
   - {fileID: 1735472510}
