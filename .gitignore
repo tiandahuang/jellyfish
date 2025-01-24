@@ -1,2 +1,5 @@
 # ignore MacOS meta data
 .DS_Store 
+
+# ignore generated builds
+Builds/
