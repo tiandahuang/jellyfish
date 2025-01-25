@@ -10,6 +10,8 @@ public class FollowSpline : MonoBehaviour
     public float speed = 1.0f; // Movement speed
     private float t = 0f; // Normalized position along the spline (0 to 1)
 
+    public GameObject Jelly;
+    public GameObject Player;
     void Start()
     {
         splineContainer = Spline.GetComponent<SplineContainer>();
@@ -28,10 +30,11 @@ public class FollowSpline : MonoBehaviour
         Vector3 position = splineContainer.EvaluatePosition(t);
 
         // Update the GameObject's position
-        transform.position = position;
+        transform.parent.transform.position = position;
 
         // Optionally, align the GameObject to the spline's tangent
         Vector3 rotation = splineContainer.EvaluateTangent(t);
-        transform.rotation = Quaternion.LookRotation(rotation);
+        Player.transform.LookAt(Jelly.transform.position);
+
     }
 }

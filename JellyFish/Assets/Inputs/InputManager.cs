@@ -41,7 +41,6 @@ public class InputManager : MonoBehaviour
     void OnEnable()
     {
 #if UNITY_EDITOR
-
         if (inputActionAsset != null)
         {
                 inputActionMap = inputActionAsset.FindActionMap("PC");
@@ -60,7 +59,6 @@ public class InputManager : MonoBehaviour
 #endif
         // TODO bind to BLE signal here
         // ex) BLEManager.BLEFloatEvent += OnFloatActionPerformedOldInputSystem;
-
     }
 
     private void OnDisable()
@@ -82,18 +80,18 @@ public class InputManager : MonoBehaviour
         // Get the float value
         float value = context.ReadValue<float>();
         Debug.Log($"Float value received: {value}");
-        //FloatInputAction.Invoke();
+        FloatInputAction.Invoke();
     }
 
     private void OnFloatActionPerformedOldInputSystem(float  value)
     {
         Debug.Log($"[Old Input System] Float value received: {value}");
-        //FloatInputAction.Invoke();
+        FloatInputAction.Invoke();
     }
 
     public void InvokeFloatActionManually(float value)
     {
         Debug.Log($"[Manual Invoke] Float value received: {value}");
-        //FloatInputAction?.Invoke();
+        FloatInputAction?.Invoke();
     }
 }
