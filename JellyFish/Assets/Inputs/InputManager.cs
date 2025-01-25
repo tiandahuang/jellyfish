@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager Instance { get; private set;}
+    public static InputManager Instance;
 
     [Header("Input Settings")]
     public InputActionAsset inputActionAsset;
@@ -16,7 +16,8 @@ public class InputManager : MonoBehaviour
     private InputAction floatAction;
     private InputActionMap inputActionMap;
 
-    private UnityEvent FloatInputAction; // Maybe it could be public
+    public UnityEvent<float> FloatInputAction; 
+    // Maybe it could be public
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -43,7 +44,7 @@ public class InputManager : MonoBehaviour
 #if UNITY_EDITOR
         if (inputActionAsset != null)
         {
-                inputActionMap = inputActionAsset.FindActionMap("PC");
+            inputActionMap = inputActionAsset.FindActionMap("PC");
             
             if (inputActionMap != null)
             {
@@ -80,18 +81,18 @@ public class InputManager : MonoBehaviour
         // Get the float value
         float value = context.ReadValue<float>();
         Debug.Log($"Float value received: {value}");
-        FloatInputAction.Invoke();
+        FloatInputAction.Invoke(value);
     }
 
     private void OnFloatActionPerformedOldInputSystem(float  value)
     {
         Debug.Log($"[Old Input System] Float value received: {value}");
-        FloatInputAction.Invoke();
+        FloatInputAction.Invoke(value);
     }
 
     public void InvokeFloatActionManually(float value)
     {
         Debug.Log($"[Manual Invoke] Float value received: {value}");
-        FloatInputAction?.Invoke();
+        FloatInputAction?.Invoke(value);
     }
 }
