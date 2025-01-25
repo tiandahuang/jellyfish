@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BLE.unity
     guid: d9d2e17eaa3c96048a3126cf370e9ebc
+  - enabled: 1
+    path: Assets/Scenes/LV_Inputs.unity
+    guid: 1ea49a2cd5476d7499b10adbbc74b616
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 241f00cd30e07ff4698008653e543a8a, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: df75f212b4269b24195fea727df6f37a, type: 2}
