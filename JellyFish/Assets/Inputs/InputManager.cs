@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager Instance { get; private set; }
+    public static InputManager Instance { get; private set;}
 
     [Header("Input Settings")]
     public InputActionAsset inputActionAsset;
