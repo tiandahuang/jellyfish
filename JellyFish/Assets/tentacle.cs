@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//code from here https://www.youtube.com/watch?v=9hTnlp9_wX8
+
 public class tentacle : MonoBehaviour
 {
     [SerializeField] int length;
