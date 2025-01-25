@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
                 floatAction.Enable();
                 floatAction.performed += OnFloatActionPerformed;
             }
-
+            // TODO bind to BLE signal here
         }
     }
 
@@ -46,6 +46,8 @@ public class InputManager : MonoBehaviour
             floatAction.Disable();
             floatAction.performed -= OnFloatActionPerformed;
         }
+        
+        // TODO un bind to BLE signal here
     }
     
     private void OnFloatActionPerformed(InputAction.CallbackContext context)
