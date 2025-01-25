@@ -12,6 +12,11 @@ public class tentacle : MonoBehaviour
     [SerializeField] Transform targetDir;
     [SerializeField] float targetDist;
     [SerializeField] float smoothSpeed;
+    [SerializeField] float trailSpeed;
+
+    [SerializeField] float wiggleSpeed;
+    [SerializeField] float wiggleMagnitude;
+    [SerializeField] Transform wiggleDir;
 
     void Start()
     {
@@ -22,6 +27,9 @@ public class tentacle : MonoBehaviour
 
     void Update()
     {
+
+        wiggleDir.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(Time.time * wiggleSpeed) * wiggleMagnitude);
+
         segmentPoses[0] = targetDir.position;
 
         for (int i = 1; i < segmentPoses.Length; i++)
