@@ -19,7 +19,7 @@ public class LogToText : MonoBehaviour
     }
 
     
-    private int maxLines = 100; // 예시
+    private int maxLines = 50; // 예시
 
     private void HandleLog(string logString, string stackTrace, LogType type)
     {
