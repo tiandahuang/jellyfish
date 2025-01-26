@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager Instance { get; private set; }
+    public static InputManager Instance;
     public float CurrentRightTriggerValue { get; private set; }
 
     public AudioSource audioSource;
@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_ANDROID //&& !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
         float rightTriggerValue = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
         Debug.Log("Right Trigger Value: " + rightTriggerValue);
         CurrentRightTriggerValue = rightTriggerValue;

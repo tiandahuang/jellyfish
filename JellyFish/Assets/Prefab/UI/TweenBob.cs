@@ -33,7 +33,7 @@ public class TweenBob : MonoBehaviour
         
         transform.DOMove(endPos, duration)
             .SetLoops(-1, LoopType.Yoyo) // Loop infinitely in a ping-pong manner
-            .SetEase(Ease.InOutSine);    // Smooth easing for back-and-forth motion
+            .SetEase(Ease.InOutSine).SetId("TweenBob");    // Smooth easing for back-and-forth motion
     }
 
 }
