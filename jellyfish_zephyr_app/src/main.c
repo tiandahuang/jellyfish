@@ -11,6 +11,7 @@
 #include "emg.h"
 #include "haptics.h"
 #include "heartbeat.h"
+#include "butterworth.h"
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -19,37 +20,54 @@
 #include <zephyr/sys/printk.h>
 #include <zephyr/drivers/gpio.h>
 
+#define ADC_SAMPLE_BUFFER_SIZE 64
+#define BUZZER_PERIOD 1000
+#define BUZZER_INTENSITY 500
+#define BUZZER_THRESH 0x40
+
+static void do_we_buzz(uint8_t power)
+{
+	if (power > BUZZER_THRESH) {
+		gpio_pin_set_dt(&leds[LED_GREEN], 1);
+		buzzer_on(BUZZER_INTENSITY);
+	} else {
+		gpio_pin_set_dt(&leds[LED_GREEN], 0);
+		buzzer_off();
+	}
+}
+
 int main(void)
 {
 	int i = 0;
-	int buzzer_status = 0;
 	ble_packet_t packet = {0};
 	int16_t adc_value = 0;
+	int32_t adc_filt_values[ADC_SAMPLE_BUFFER_SIZE] = {0};
+	int32_t adc_filt_filt_max = 0;
+	int32_t adc_filt_max = 0;
+	uint8_t power_rough = 0;
 
-	heartbeat_init(100, LED_BLUE);
+	heartbeat_init(200, LED_BLUE);
 	send_peripheral_init();
 	adc_init();
-	buzzer_init(1000);
+	buzzer_init(BUZZER_PERIOD);
+	filter_init();
 
 	while (true) {
 		heartbeat_beat();
 		
 		if (adc_sample(&adc_value)) runtime_error();
+		adc_filt_values[i % ADC_SAMPLE_BUFFER_SIZE] = (int32_t)adc_value;
 
-		packet.data.gesture = (uint16_t)adc_value;
+		if (i % ADC_SAMPLE_BUFFER_SIZE == 0) {
+			// we've filled the buffer, so average and ship it
+			adc_filt_max = array_max(adc_filt_values, ADC_SAMPLE_BUFFER_SIZE);
+			adc_filt_filt_max = filter(adc_filt_max);
+			power_rough = map_to_u8(adc_filt_filt_max, 0, 255);
 
-		if (i % 100 == 0) {
+			// send packet & do haptics response
+			do_we_buzz(power_rough);
+			packet.data.gesture = power_rough;
 			send_peripheral_sample(packet.raw, sizeof(packet.raw), 0);
-		}
-		if (i % 1000 == 0) {
-			buzzer_status ^= 0x1;
-			if (buzzer_status) {
-				gpio_pin_set_dt(&leds[LED_GREEN], 1);
-				buzzer_on(500);
-			} else {
-				gpio_pin_set_dt(&leds[LED_GREEN], 0);
-				buzzer_off();
-			}
 		}
 
 		i++;

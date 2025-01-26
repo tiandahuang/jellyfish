@@ -11,5 +11,6 @@ target_sources(app PRIVATE
   src/emg.c
   src/haptics.c
   src/heartbeat.c
+  src/butterworth.c
 )
 target_include_directories(app PRIVATE inc)
