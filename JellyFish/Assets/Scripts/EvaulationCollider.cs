@@ -14,20 +14,24 @@ public class EvaulationCollider : MonoBehaviour
             if (rightTriggerValue <= 0.4)
             {
                 evaulateUIs[0].SetActive(true);
+                audioSources[0].Play();
                 StartCoroutine(DeactivateAfterDelay(evaulateUIs[0], 1.0f));
             } else if(rightTriggerValue <= 0.6 && rightTriggerValue > 0.4)
             {
                 evaulateUIs[1].SetActive(true);
+                audioSources[1].Play();
                 StartCoroutine(DeactivateAfterDelay(evaulateUIs[1], 1.0f));
             }
             else if (rightTriggerValue <= 0.8 && rightTriggerValue > 0.6)
             {
                 evaulateUIs[2].SetActive(true);
+                audioSources[2].Play();
                 StartCoroutine(DeactivateAfterDelay(evaulateUIs[2], 1.0f));
             }
             else
             {
                 evaulateUIs[3].SetActive(true);
+                audioSources[3].Play();
                 StartCoroutine(DeactivateAfterDelay(evaulateUIs[3], 1.0f));
             }
 
