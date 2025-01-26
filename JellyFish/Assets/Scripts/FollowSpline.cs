@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class FollowSpline : MonoBehaviour
 {
     public GameObject Spline; // Reference to the SplineContainer
     private SplineContainer splineContainer;
-    public float speed = 0.001f; // Movement speed
+    public float speed; // Movement speed
     private float t = 0f; // Normalized position along the spline (0 to 1)
 
     public GameObject Jelly;
@@ -23,12 +24,13 @@ public class FollowSpline : MonoBehaviour
     public void HandleFloatSpeed(float valuespeed)
     {
         //Debug.Log($"[Receiver] Received float value: {valuespeed}");
-        speed = valuespeed * 0.05f + 0.01f;
+        speed = Math.Clamp(valuespeed, 0, 0.001f);
     }
 
     void Update()
     {
         if (splineContainer == null) return;
+        print(speed);
 
         // Update the normalized position based on speed and time
         t += speed * Time.deltaTime;
@@ -45,7 +47,7 @@ public class FollowSpline : MonoBehaviour
         // Optionally, align the GameObject to the spline's tangent
         Vector3 rotation = splineContainer.EvaluateTangent(t);
 
-        this.transform.rotation = Quaternion.LookRotation(rotation);
+        transform.rotation = Quaternion.LookRotation(rotation);
 
     }
 }
