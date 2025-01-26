@@ -1343,7 +1343,7 @@ GameObject:
   - component: {fileID: 163818172}
   - component: {fileID: 163818173}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BLE Reader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
