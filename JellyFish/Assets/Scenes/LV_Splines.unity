@@ -248,6 +248,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 55265022239869268, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55265022239869268, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 55265022239869268, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55265022239869268, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55265022239869268, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 247029451357991706, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 247029451357991706, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 247029451357991706, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1195978788457455097, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -298,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 274628803}
     - target: {fileID: 7826620698528053774, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
       propertyPath: speed
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7826620698528053774, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
       propertyPath: Player
@@ -308,6 +340,10 @@ PrefabInstance:
       propertyPath: Spline
       value: 
       objectReference: {fileID: 1428989249}
+    - target: {fileID: 8853495470580239168, guid: 46a58c64fe26250419cce08d7ca066a9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -435,7 +471,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
