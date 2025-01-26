@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
-    public float CurrentRightTriggerValue { get; private set; }
+    public bool CurrentRightTriggerValue { get; private set; }
 
     public AudioSource audioSource;
     private bool isPlaying = false;
@@ -19,8 +19,13 @@ public class InputManager : MonoBehaviour
 
     private InputAction floatAction;
     private InputActionMap inputActionMap;
+    
+    public UnityEvent<float> FloatInputAction;
 
-    public UnityEvent<float> FloatInputAction; 
+    public float Threshold = 64;
+    
+    private bool isButtonPressed = false; // Tracks the current state of the button
+
     // Maybe it could be public
     private void Awake()
     {
@@ -36,13 +41,25 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        float rightTriggerValue = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
-        Debug.Log("Right Trigger Value: " + rightTriggerValue);
-        CurrentRightTriggerValue = rightTriggerValue;
-        OnFloatActionPerformedOldInputSystem(rightTriggerValue);
+#if UNITY_ANDROID //&& !UNITY_EDITOR
+        bool currentButtonState = OVRInput.Get(OVRInput.Button.One);
 
-        if (rightTriggerValue >= 0.7f && !isPlaying)
+        // If the button state changes
+        if (currentButtonState != isButtonPressed)
+        {
+            isButtonPressed = currentButtonState;
+            if (isButtonPressed)
+            {
+                // Trigger event for button press
+                OnFloatActionPerformedOldInputSystem(1);
+            }
+            else
+            {
+                OnFloatActionPerformedOldInputSystem(0);
+            }
+        }
+
+        if (CurrentRightTriggerValue && !isPlaying)
         {
             StartCoroutine(PlaySound());
         }
@@ -109,9 +126,16 @@ public class InputManager : MonoBehaviour
         FloatInputAction.Invoke(value);
     }
 
-    public void InvokeFloatActionManually(float value)
+    public void InvokeFloatActionBLE(float value)
     {
         Debug.Log($"[Manual Invoke] Float value received: {value}");
-        FloatInputAction?.Invoke(value);
+        if (value >= Threshold)
+        {
+            FloatInputAction?.Invoke(1);
+        }
+        else
+        {
+            FloatInputAction?.Invoke(0);
+        }
     }
 }

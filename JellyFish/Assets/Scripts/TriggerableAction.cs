@@ -17,14 +17,15 @@ public class TriggerableAction : MonoBehaviour
 
     public void OnTriggered(float Triggered)
     {
-        print("he");
+        if (Triggered <= 0)
+            return;
         // do once and then die...
         if (!triggered)
         {
             Trigger.Invoke();
             var x = transform.position;
             x.y = 100;
-            print(DOTween.Kill("TweenBob"));
+            DOTween.Kill("TweenBob");
             transform.DOMove(x, 5.0f).OnComplete(() =>
             {
                 // get fucked!
