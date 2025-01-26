@@ -7,14 +7,25 @@ public class FollowSpline : MonoBehaviour
 {
     public GameObject Spline; // Reference to the SplineContainer
     private SplineContainer splineContainer;
-    public float speed = 1.0f; // Movement speed
+    public float speed = 0.001f; // Movement speed
     private float t = 0f; // Normalized position along the spline (0 to 1)
 
     public GameObject Jelly;
     void Start()
     {
         splineContainer = Spline.GetComponent<SplineContainer>();
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.FloatInputAction.AddListener(HandleFloatSpeed);
+        }
     }
+
+    public void HandleFloatSpeed(float valuespeed)
+    {
+        //Debug.Log($"[Receiver] Received float value: {valuespeed}");
+        speed = valuespeed * 0.05f + 0.01f;
+    }
+
     void Update()
     {
         if (splineContainer == null) return;
