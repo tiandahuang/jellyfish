@@ -17,7 +17,7 @@ public class FollowSpline : MonoBehaviour
         splineContainer = Spline.GetComponent<SplineContainer>();
         if (InputManager.Instance != null)
         {
-            InputManager.Instance.FloatInputAction.AddListener(HandleFloatSpeed);
+            InputManager.Instance.BLEInputAction.AddListener(HandleFloatSpeed);
         }
     }
 

@@ -21,11 +21,16 @@ public class InputManager : MonoBehaviour
     private InputActionMap inputActionMap;
     
     public UnityEvent<float> FloatInputAction;
+    public UnityEvent<float> SecondaryInputAction;
+    public UnityEvent<float> BLEInputAction;
 
-    public float Threshold = 64;
+    
+    public float Threshold = 120;
+    public float ThresholdDecrement = 10;
     
     private bool isButtonPressed = false; // Tracks the current state of the button
 
+    private bool isSecondaryButtonPressed = false;
     // Maybe it could be public
     private void Awake()
     {
@@ -58,12 +63,34 @@ public class InputManager : MonoBehaviour
                 OnFloatActionPerformedOldInputSystem(0);
             }
         }
+        
+        bool SecondaryButtonState = OVRInput.Get(OVRInput.Button.Two);
+
+        // If the button state changes
+        if (SecondaryButtonState != isSecondaryButtonPressed)
+        {
+            isSecondaryButtonPressed = SecondaryButtonState;
+            if (isSecondaryButtonPressed)
+            {
+                // Trigger event for button press
+                SecondaryTrigger(1);
+            }
+            else
+            {
+                SecondaryTrigger(0);
+            }
+        }
 
         if (CurrentRightTriggerValue && !isPlaying)
         {
             StartCoroutine(PlaySound());
         }
 #endif
+    }
+
+    private void SecondaryTrigger(int p0)
+    {
+        SecondaryInputAction.Invoke(p0);
     }
 
     private IEnumerator PlaySound()
@@ -117,7 +144,7 @@ public class InputManager : MonoBehaviour
         // Get the float value
         float value = context.ReadValue<float>();
         Debug.Log($"Float value received: {value}");
-        FloatInputAction.Invoke(value);
+        BLEInputAction.Invoke(value);
     }
 
     private void OnFloatActionPerformedOldInputSystem(float  value)
@@ -131,11 +158,11 @@ public class InputManager : MonoBehaviour
         Debug.Log($"[Manual Invoke] Float value received: {value}");
         if (value >= Threshold)
         {
-            FloatInputAction?.Invoke(1);
+            BLEInputAction?.Invoke(1);
         }
         else
         {
-            FloatInputAction?.Invoke(0);
+            BLEInputAction?.Invoke(0);
         }
     }
 }
