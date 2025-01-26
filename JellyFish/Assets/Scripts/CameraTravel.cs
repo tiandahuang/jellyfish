@@ -20,7 +20,7 @@ public class CameraTravel : MonoBehaviour
 
         Vector3 NormalizedDirection = Jelly.transform.position.normalized;
         Vector3 NewPosition = NormalizedDirection * Radius;
-        NewPosition.y = Jelly.transform.position.y;
+        //NewPosition.y = Jelly.transform.position.y;
         transform.position = NewPosition;
 
         // Calculate the rotation while locking the x-axis
