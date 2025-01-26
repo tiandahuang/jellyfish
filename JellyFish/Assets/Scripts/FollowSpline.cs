@@ -45,5 +45,7 @@ public class FollowSpline : MonoBehaviour
         // Optionally, align the GameObject to the spline's tangent
         Vector3 rotation = splineContainer.EvaluateTangent(t);
 
+        this.transform.rotation = Quaternion.LookRotation(rotation);
+
     }
 }
