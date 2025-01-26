@@ -10,7 +10,7 @@ public class FollowSpline : MonoBehaviour
     private SplineContainer splineContainer;
     public float speed; // Movement speed
     private float t = 0f; // Normalized position along the spline (0 to 1)
-
+    public bool IsReady = false;
     public GameObject Jelly;
     void Start()
     {
@@ -24,7 +24,15 @@ public class FollowSpline : MonoBehaviour
     public void HandleFloatSpeed(float valuespeed)
     {
         //Debug.Log($"[Receiver] Received float value: {valuespeed}");
-        speed = Math.Clamp(valuespeed, 0, 0.001f);
+        if (IsReady)
+        {
+            speed = Math.Clamp(valuespeed, 0, 0.001f);
+        }
+    }
+
+    public void SetReady(bool ready)
+    {
+        IsReady = ready;
     }
 
     void Update()

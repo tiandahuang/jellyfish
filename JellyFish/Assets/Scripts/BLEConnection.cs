@@ -63,15 +63,10 @@ public class BLEConnection : MonoBehaviour
                 Debug.Log("Discovered characteristic: " + characteristicUUID);
                 string targetServiceUUID = serviceUUID;
                 string targetCharacteristicUUID = characteristicUUID;
-
-
-                
                     if(characteristicUUID == "deadbeef-dead-beef-dead-beefdeadbeef") // DO NOT Touch!
                     {
                         SubscribeCharacteristic(connectedAddress, serviceUUID, characteristicUUID);
                     }
-                    
-                
             },
             // disconnectAction
             (disconnectedAddress) => {
