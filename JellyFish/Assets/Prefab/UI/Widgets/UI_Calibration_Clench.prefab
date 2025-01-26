@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4375600417806042201
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2771088062042647716, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3401352311623195568, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 122.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710226396268601356, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_text
+      value: These are my limits...
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710226396268601356, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710226396268601356, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902558846445480997, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_text
+      value: 'How far can you move? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902558846445480997, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902558846445480997, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902558846445480997, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009445732486346428, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 71.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009445732486346428, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584736715347385231, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.015709374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584736715347385231, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0502101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584736715347385231, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7124656
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584736715347385231, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70170707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584736715347385231, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -89.128
+      objectReference: {fileID: 0}
+    - target: {fileID: 5335059945915366262, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_Name
+      value: UI_Calibration_Clench
+      objectReference: {fileID: 0}
+    - target: {fileID: 5860422065762032648, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0855
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370036719801453722, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495228244576372784, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451720307172765994, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      propertyPath: m_text
+      value: 'Try to fully close your left hand. '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4765279814239116709, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 353869559061590086}
+  m_SourcePrefab: {fileID: 100100000, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+--- !u!1 &9122302574143117820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4765279814239116709, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
+  m_PrefabInstance: {fileID: 4375600417806042201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &353869559061590086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122302574143117820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a380281197751409b6ab0cfa75234d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartMovementXRange: -0.1
+  StartMovementYRange: -0.1
+  EndMovementXRange: 0.1
+  EndMovementYRange: 0.1
+  duration: 2
