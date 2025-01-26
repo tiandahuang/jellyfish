@@ -20,19 +20,19 @@
 #include <zephyr/sys/printk.h>
 #include <zephyr/drivers/gpio.h>
 
-#define ADC_SAMPLE_BUFFER_SIZE 10
+#define ADC_SAMPLE_BUFFER_SIZE 64
 #define BUZZER_PERIOD 1000
 #define BUZZER_INTENSITY 500
-#define BUZZER_THRESH 100
+#define BUZZER_THRESH 0x40
 
 static void do_we_buzz(uint8_t power)
 {
 	if (power > BUZZER_THRESH) {
 		gpio_pin_set_dt(&leds[LED_GREEN], 1);
-		// buzzer_on(BUZZER_INTENSITY);
+		buzzer_on(BUZZER_INTENSITY);
 	} else {
 		gpio_pin_set_dt(&leds[LED_GREEN], 0);
-		// buzzer_off();
+		buzzer_off();
 	}
 }
 
@@ -42,7 +42,8 @@ int main(void)
 	ble_packet_t packet = {0};
 	int16_t adc_value = 0;
 	int32_t adc_filt_values[ADC_SAMPLE_BUFFER_SIZE] = {0};
-	int32_t adc_filt_avg = 0;
+	int32_t adc_filt_filt_max = 0;
+	int32_t adc_filt_max = 0;
 	uint8_t power_rough = 0;
 
 	heartbeat_init(200, LED_BLUE);
@@ -55,12 +56,13 @@ int main(void)
 		heartbeat_beat();
 		
 		if (adc_sample(&adc_value)) runtime_error();
-		adc_filt_values[i % ADC_SAMPLE_BUFFER_SIZE] = filter((int32_t)adc_value);
+		adc_filt_values[i % ADC_SAMPLE_BUFFER_SIZE] = (int32_t)adc_value;
 
 		if (i % ADC_SAMPLE_BUFFER_SIZE == 0) {
 			// we've filled the buffer, so average and ship it
-			adc_filt_avg = array_average(adc_filt_values, ADC_SAMPLE_BUFFER_SIZE);
-			power_rough = map_to_u8(adc_filt_avg, 0, 4095);
+			adc_filt_max = array_max(adc_filt_values, ADC_SAMPLE_BUFFER_SIZE);
+			adc_filt_filt_max = filter(adc_filt_max);
+			power_rough = map_to_u8(adc_filt_filt_max, 0, 255);
 
 			// send packet & do haptics response
 			do_we_buzz(power_rough);

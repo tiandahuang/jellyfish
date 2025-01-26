@@ -29,6 +29,16 @@ int array_average(int32_t *buf, uint32_t len) {
     return sum / len;
 }
 
+int array_max(int32_t *buf, uint32_t len) {
+    int32_t max = buf[0];
+    for (int i = 1; i < len; i++) {
+        if (buf[i] > max) {
+            max = buf[i];
+        }
+    }
+    return max;
+}
+
 uint8_t map_to_u8(int32_t val, int32_t min, int32_t max) {
     if (val < min) {
         return 0;
