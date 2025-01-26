@@ -8,7 +8,11 @@ using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager Instance;
+    public static InputManager Instance { get; private set; }
+    public float CurrentRightTriggerValue { get; private set; }
+
+    public AudioSource audioSource;
+    private bool isPlaying = false;
 
     [Header("Input Settings")]
     public InputActionAsset inputActionAsset;
@@ -32,11 +36,26 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID //&& !UNITY_EDITOR
         float rightTriggerValue = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
         Debug.Log("Right Trigger Value: " + rightTriggerValue);
+        CurrentRightTriggerValue = rightTriggerValue;
         OnFloatActionPerformedOldInputSystem(rightTriggerValue);
+
+        if (rightTriggerValue >= 0.7f && !isPlaying)
+        {
+            StartCoroutine(PlaySound());
+        }
 #endif
+    }
+
+    private IEnumerator PlaySound()
+    {
+        isPlaying = true;
+        audioSource.Play();
+        yield return new WaitForSeconds(2f);
+
+        isPlaying = false;
     }
 
     void OnEnable()
@@ -86,7 +105,7 @@ public class InputManager : MonoBehaviour
 
     private void OnFloatActionPerformedOldInputSystem(float  value)
     {
-        Debug.Log($"[Old Input System] Float value received: {value}");
+        //Debug.Log($"[Old Input System] Float value received: {value}");
         FloatInputAction.Invoke(value);
     }
 
