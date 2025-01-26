@@ -4,7 +4,7 @@ using System.Collections;
 
 public class BLEConnection : MonoBehaviour
 {
-    private string targetDeviceName = "Jelly Broadcast Test";
+    private string targetDeviceName = "nemo";
 
     void Start()
     {
@@ -101,6 +101,7 @@ public class BLEConnection : MonoBehaviour
             short gyroZ = BitConverter.ToInt16(data, 12);
 
             Debug.Log($"gesture: {gesture}, accel=({accelX}, {accelY}, {accelZ}), gyro=({gyroX}, {gyroY}, {gyroZ})");
+            InputManager.Instance.InvokeFloatActionBLE(gesture);
         }
         
         

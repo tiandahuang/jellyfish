@@ -27,6 +27,7 @@ public class FollowSpline : MonoBehaviour
         if (IsReady)
         {
             speed = Math.Clamp(valuespeed, 0, 0.001f);
+            print(speed);
         }
     }
 
@@ -38,7 +39,6 @@ public class FollowSpline : MonoBehaviour
     void Update()
     {
         if (splineContainer == null) return;
-        print(speed);
 
         // Update the normalized position based on speed and time
         t += speed * Time.deltaTime;

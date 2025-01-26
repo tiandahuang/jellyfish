@@ -10,8 +10,8 @@ public class EvaulationCollider : MonoBehaviour
     {
         if (other.CompareTag("JellyFish"))
         {
-            float rightTriggerValue = InputManager.Instance.CurrentRightTriggerValue;
-            if (rightTriggerValue <= 0.4)
+            bool rightTriggerValue = InputManager.Instance.CurrentRightTriggerValue;
+            /*if (rightTriggerValue <= 0.4)
             {
                 evaulateUIs[0].SetActive(true);
                 StartCoroutine(DeactivateAfterDelay(evaulateUIs[0], 1.0f));
@@ -29,7 +29,7 @@ public class EvaulationCollider : MonoBehaviour
             {
                 evaulateUIs[3].SetActive(true);
                 StartCoroutine(DeactivateAfterDelay(evaulateUIs[3], 1.0f));
-            }
+            }*/
 
         }
         

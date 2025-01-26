@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710226396268601356, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
       propertyPath: m_text
-      value: These are my limits...
+      value: I am Jellax'd...
       objectReference: {fileID: 0}
     - target: {fileID: 3710226396268601356, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
       propertyPath: m_VerticalAlignment
@@ -126,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8451720307172765994, guid: 35bce45c6431fa94fb80453df1d40ca7, type: 3}
       propertyPath: m_text
-      value: 'Try to fully open your left hand. '
+      value: 'Try to relax your left hand. '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
